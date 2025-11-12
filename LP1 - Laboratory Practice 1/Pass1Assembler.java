@@ -69,7 +69,7 @@ class Pass1Assembler{
 
         String lbl = t[0], op = t[1], o1 = t[2], o2 = t[3];
         
-        if(!lbl.isEmpty() && !isLit(lbl) && !lbl.equals("EQU")){
+        if(!lbl.isEmpty() && !isLit(lbl) && !op.equals("EQU")){
             symTab.put(lbl, LC);
         }
 
@@ -299,5 +299,6 @@ class Pass1Assembler{
         }
         new Pass1Assembler().processFile(args[0]);
     }
+
 
 }
