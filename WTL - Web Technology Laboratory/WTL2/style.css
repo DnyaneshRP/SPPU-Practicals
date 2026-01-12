@@ -1,0 +1,111 @@
+/* External CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(140deg, #edfcb6, #4863fc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #ffffff;
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #4863fc;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #4863fc;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #4863fc;
+}
+
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #4863fc;
+    font-weight: bold;
+}
+
+
+/* Styling for the Gender section */
+.gender-group {
+    margin-bottom: 20px;
+}
+
+.gender-group label {
+    color: #555;
+    font-size: 15px;
+}
+
+.radio-container {
+    display: flex;
+    gap: 15px; /* Adds space between Male and Female options */
+    margin-top: 8px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-option input {
+    margin-right: 8px; /* Space between the dot and the text */
+    cursor: pointer;
+    accent-color: #4863fc; /* Changes the dot color to match your theme */
+}
+
+.radio-option:hover {
+    color: #4863fc; /* Subtle highlight on hover */
+}
