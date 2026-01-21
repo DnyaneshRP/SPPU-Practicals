@@ -3,7 +3,7 @@ All the practicals are well-done and written in simple manner.
 
 6th SEM:
 
-![DSBDAL](./DSBDAL - Data Science & Big Data Analytics Laboratory)
+![DSBDAL](./"DSBDAL - Data Science & Big Data Analytics Laboratory")
 
 ![LP2](./LP2 - Laboratory Practice 2)
 
