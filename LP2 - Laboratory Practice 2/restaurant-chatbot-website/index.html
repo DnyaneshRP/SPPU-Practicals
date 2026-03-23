@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spice Garden Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Spice Garden Restaurant</h1>
+        <p>Authentic Indian Cuisine in Pune</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Welcome to Spice Garden</h2>
+        <p>Experience the taste of authentic Indian spices and traditional recipes.</p>
+        <button class="orderBtn">Order Now</button>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            Spice Garden Restaurant is one of Pune's favorite destinations for authentic
+            Indian cuisine. Our chefs prepare delicious dishes using traditional spices
+            and fresh ingredients. Whether you're craving biryani, butter chicken,
+            or South Indian dosa, we have something for everyone.
+        </p>
+    </section>
+
+    <section class="menu">
+        <h2>Popular Dishes</h2>
+
+        <div class="menu-grid">
+
+            <div class="card">
+                <h3>Chicken Biryani</h3>
+                <p>Rich aromatic rice cooked with spices and chicken.</p>
+            </div>
+
+            <div class="card">
+                <h3>Butter Chicken</h3>
+                <p>Creamy tomato based curry loved by everyone.</p>
+            </div>
+
+            <div class="card">
+                <h3>Paneer Butter Masala</h3>
+                <p>Soft paneer cubes cooked in buttery gravy.</p>
+            </div>
+
+            <div class="card">
+                <h3>Masala Dosa</h3>
+                <p>Crispy dosa served with sambar and chutney.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>📍 MG Road, Pune | 📞 +91 9876543210</p>
+        <p>Open Daily: 10 AM - 11 PM</p>
+    </footer>
+
+    <button id="chatButton">💬</button>
+
+    <div id="chatbot">
+
+        <div class="chat-header">
+            <span>Spice Garden Assistant</span>
+            <button id="closeChat">✖</button>
+        </div>
+
+        <div id="chat-area"></div>
+
+        <div class="input-area">
+            <input id="userInput" type="text" placeholder="Type your message...">
+            <button id="sendBtn">Send</button>
+        </div>
+
+    </div>
+
+    <script src="chatbot.js"></script>
+
+</body>
+
+</html>
