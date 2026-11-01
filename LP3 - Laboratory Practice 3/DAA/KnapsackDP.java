@@ -44,6 +44,8 @@
  * Capacity: 50
  *
  * Sample Output:
+ * Selection Array: [0, 1, 1]
+ * Total Weight: 50
  * Maximum Profit: 220
  *
  * Viva:
