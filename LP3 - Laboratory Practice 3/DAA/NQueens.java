@@ -49,11 +49,12 @@
  * 4. If a choice leads to no solution, we undo that choice.
  */
 
+
 import java.util.Scanner;
 
 public class NQueens {
 
-    // Check whether a Queen can be placed at board[row][col]
+    // Check whether a Queen can be placed safely
     static boolean isSafe(int[][] board, int row, int col, int n) {
 
         // Check the same column
@@ -83,12 +84,19 @@ public class NQueens {
         return true;
     }
 
-    // Backtracking function to place remaining Queens
+    // Backtracking function
     static boolean solveNQueens(int[][] board, int row, int n) {
 
-        // All Queens have been successfully placed
+        // All rows have been processed
         if (row == n)
             return true;
+
+        // If this row already contains the first Queen,
+        // skip it and move to the next row
+        for (int col = 0; col < n; col++) {
+            if (board[row][col] == 1)
+                return solveNQueens(board, row + 1, n);
+        }
 
         // Try every column in the current row
         for (int col = 0; col < n; col++) {
@@ -124,6 +132,7 @@ public class NQueens {
 
             System.out.println();
         }
+
         System.out.println();
     }
 
@@ -150,6 +159,7 @@ public class NQueens {
         firstRow--;
         firstCol--;
 
+        // Validate position
         if (firstRow < 0 || firstRow >= n ||
             firstCol < 0 || firstCol >= n) {
 
@@ -158,27 +168,14 @@ public class NQueens {
             return;
         }
 
+        // Create chessboard
         int[][] board = new int[n][n];
 
         // Place the first Queen
         board[firstRow][firstCol] = 1;
 
-        /*
-         * This program assumes the first Queen is placed
-         * in the first row.
-         *
-         * Therefore, solve remaining rows starting from row 1.
-         */
-        if (firstRow != 0) {
-            System.out.println(
-                "\nFor this program, first Queen must be in row 1."
-            );
-            sc.close();
-            return;
-        }
-
-        // Place remaining Queens
-        boolean result = solveNQueens(board, 1, n);
+        // Place remaining Queens starting from row 0
+        boolean result = solveNQueens(board, 0, n);
 
         if (result) {
             System.out.println("\nN-Queens Solution:");
