@@ -53,25 +53,24 @@
  * 4. W is the knapsack capacity and n is the number of items.
  */
 
+
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class KnapsackDP {
 
-    static int knapsack(int[] wt, int[] profit, int n, int W) {
+    static int knapsack(int[] wt, int[] profit, int n, int W,
+                        int[] selected) {
 
-        // dp[i][w] = maximum profit using first i items
-        // with capacity w
         int[][] dp = new int[n + 1][W + 1];
 
         // Fill the DP table
         for (int i = 1; i <= n; i++) {
             for (int w = 0; w <= W; w++) {
 
-                // If the current item cannot fit
                 if (wt[i - 1] > w) {
                     dp[i][w] = dp[i - 1][w];
                 } else {
-                    // Maximum of excluding or including the item
                     dp[i][w] = Math.max(
                         dp[i - 1][w],
                         profit[i - 1] + dp[i - 1][w - wt[i - 1]]
@@ -80,10 +79,25 @@ public class KnapsackDP {
             }
         }
 
+        // Backtrack to find selected items
+        int w = W;
+
+        for (int i = n; i >= 1; i--) {
+
+            // If value differs from previous row,
+            // current item was selected
+            if (dp[i][w] != dp[i - 1][w]) {
+
+                selected[i - 1] = 1;
+                w = w - wt[i - 1];
+            }
+        }
+
         return dp[n][W];
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.print("\nEnter number of items: ");
@@ -100,6 +114,7 @@ public class KnapsackDP {
 
         int[] wt = new int[n];
         int[] profit = new int[n];
+        int[] selected = new int[n];
 
         System.out.println("\nEnter weights of items:");
         for (int i = 0; i < n; i++) {
@@ -123,13 +138,28 @@ public class KnapsackDP {
             }
         }
 
-        int maxProfit = knapsack(wt, profit, n, W);
+        // Find maximum profit and selected items
+        int maxProfit = knapsack(wt, profit, n, W, selected);
 
-        System.out.println("\nMaximum Profit: " + maxProfit);
+        // Calculate total weight
+        int totalWeight = 0;
+
+        for (int i = 0; i < n; i++) {
+            totalWeight += selected[i] * wt[i];
+        }
+
+        // Display results
+        System.out.println("\nSelection Array: "
+                + Arrays.toString(selected));
+
+        System.out.println("Total Weight: " + totalWeight);
+
+        System.out.println("Maximum Profit: " + maxProfit);
 
         sc.close();
     }
 }
+
 
 /*
  * 0-1 Knapsack using Recursion
